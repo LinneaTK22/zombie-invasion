@@ -27,9 +27,20 @@ export default class Zombie {
       else 
         this.y -= this.speed;
     }
-
+    
     takeDamage(damage) {
       this.health -= damage;
     }
+    collideWithPlayer() {
+      if (
+        this.x < this.player.x + this.player.width &&
+        this.x + this.width > this.player.x &&
+        this.y < this.player.y + this.player.height &&
+        this.y + this.height > this.player.y
+      ) {
+        this.player.takeDamage(1);
+        return true;
+      }
+      return false;
+    }
   }
-  

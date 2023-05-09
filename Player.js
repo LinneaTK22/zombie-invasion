@@ -1,12 +1,14 @@
 export default class Player {
-    constructor(no, x, y, bulletController) {
+    constructor(no, x, y, bulletController, canvas) {
       this.no = no
       this.x = x;
       this.y = y;
+      this.health = 1000;
+      this.canvas = canvas;
       this.bulletController = bulletController;
       this.width = 195;
       this.height = 203;
-      this.speed = 4;
+      this.speed = 5;
       this.img = new Image();
       this.img.src = "img/plant-player.webp";
   
@@ -34,26 +36,27 @@ export default class Player {
         const delay = 7;
         const damage = 1;
         const bulletX = this.x + this.width / 2;
-        const bulletY = this.y;
+        const bulletY = this.y + 45;
         this.bulletController.shoot(bulletX, bulletY, speed, damage, delay);
       }
     }
   
     move() {
-      if (this.downPressed) {
+      if (this.downPressed && this.y < (this.canvas.height-250)) {
         this.y += this.speed;
       }
-      if (this.upPressed) {
+      if (this.upPressed && this.y > 50) {
         this.y -= this.speed;
       }
-      if (this.leftPressed) {
+      if (this.leftPressed && this.x > 50) {
         this.x -= this.speed;
       }
-  
-      if (this.rightPressed) {
-        this.x += this.speed;
-      }
+      if (this.rightPressed && this.x < (this.canvas.width-250)) {
+        this.x += this.speed ;
+      } 
     }
+
+  
   
     keydown = (e) => {
       console.log(this.no + ": " + e.code);
@@ -95,5 +98,9 @@ export default class Player {
           break;
       } 
     };
+    
+    takeDamage(damage) {
+      this.health -= damage;
+    }
   }
   

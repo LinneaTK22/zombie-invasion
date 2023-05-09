@@ -8,21 +8,21 @@ const ctx = canvas.getContext("2d");
 canvas.width = 1200;
 canvas.height = 650;
 
-
-
 const bulletController1 = new BulletController(canvas);
 const player1 = new Player(
   1,
   50,
   50,
-  bulletController1
+  bulletController1, 
+  canvas
 );
 const bulletController2 = new BulletController(canvas);
 const player2 = new Player(
   2,
   canvas.width-250,
   canvas.height-250,
-  bulletController2
+  bulletController2, 
+  canvas
 );
 
 const zombies = []
@@ -48,17 +48,24 @@ function gameLoop() {
   player1.draw(ctx);
   bulletController2.draw(ctx);
   player2.draw(ctx);
-  
+
   zombies.forEach((zombie) => {
     if (zombie.player.bulletController.collideWith(zombie)) {
+      console.log("collition!")
       if (zombie.health <= 0) {
-        const index = zombies.indexOf(zombie);
-        zombies.splice(index, 1);
-      }
+         const index = zombies.indexOf(zombie);
+         zombies.splice(index, 1);
+        }
    } 
    else {
+    if (zombie.collideWithPlayer()){
+      if (zombie.player.health <= 0){
+        alert("game over")
+      }
+    }
      zombie.draw(ctx);
       }
+    
   });
 }
 
