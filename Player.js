@@ -3,7 +3,7 @@ export default class Player {
       this.no = no
       this.x = x;
       this.y = y;
-      this.health = 1000;
+      this.health = 500;
       this.canvas = canvas;
       this.bulletController = bulletController;
       this.width = 195;
