@@ -16,15 +16,6 @@ const player1 = new Player(
   bulletController1, 
   canvas
 );
-const bulletController2 = new BulletController(canvas);
-const player2 = new Player(
-  2,
-  canvas.width-1150,
-  canvas.height-250,
-  bulletController2, 
-  canvas
-);
-
 const zombies = []
 
 for (let i=0; i<8; i++) {
@@ -87,21 +78,6 @@ function keydown(e) {
     case "Space":
       player1.shootPressed = true;
       break;
-    case "ArrowUp":
-      player2.upPressed = true;
-      break;
-    case "ArrowDown":
-      player2.downPressed = true;
-      break;
-    case "ArrowLeft":
-      player2.leftPressed = true;
-      break;
-    case "ArrowRight":
-      player2.rightPressed = true;
-      break;
-    case "Enter":
-      player2.shootPressed = true;
-      break;
   } 
 }
 
@@ -122,21 +98,6 @@ function keyup(e) {
       break;
     case "Space":
       player1.shootPressed = false;
-      break;
-    case "ArrowUp":
-      player2.upPressed = false;
-      break;
-    case "ArrowDown":
-      player2.downPressed = false;
-      break;
-    case "ArrowLeft":
-      player2.leftPressed = false;
-      break;
-    case "ArrowRight":
-      player2.rightPressed = false;
-      break;
-    case "Enter":
-      player2.shootPressed = false;
       break;
   }  
 }

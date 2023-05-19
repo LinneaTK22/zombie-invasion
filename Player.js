@@ -10,7 +10,8 @@ export default class Player {
       this.height = 203;
       this.speed = 5;
       this.img = new Image();
-      this.img.src = "img/plant-player.webp";
+      this.img.src = no == 1 ? "img/plant-player.webp" : "img/plant-player.png";
+      
   
       this.keyUp = no == 1 ? "KeyW" : "ArrowUp";
       this.keyDown = no == 1 ? "KeyS" : "ArrowDown";
