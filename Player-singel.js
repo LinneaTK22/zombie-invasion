@@ -10,14 +10,14 @@ export default class Player {
       this.height = 203;
       this.speed = 5;
       this.img = new Image();
-      this.img.src = no == 1 ? "img/plant-player.webp" : "img/plant-player.png";
+      this.img.src ="img/plant-player.webp";
       
   
-      this.keyUp = no == 1 ? "KeyW" : "ArrowUp";
-      this.keyDown = no == 1 ? "KeyS" : "ArrowDown";
-      this.keyLeft = no == 1 ? "KeyA" : "ArrowLeft";
-      this.keyRight = no == 1 ? "KeyD" : "ArrowRight";
-      this.keyShoot = no == 1 ? "Space" : "Enter";
+      this.keyUp = "KeyW";
+      this.keyDown = "KeyS";
+      this.keyLeft =  "KeyA";
+      this.keyRight = "KeyD";
+      this.keyShoot = "Space";
 
       window.addEventListener("keydown", this.keydown, true);
       window.addEventListener("keyup", this.keyup, true);

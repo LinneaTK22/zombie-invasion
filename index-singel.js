@@ -1,4 +1,4 @@
-import Player from "./Player.js";
+import Player from "./Player-singel.js";
 import Zombie from "./Zombie.js";
 import BulletController from "./BulletController.js";
 
@@ -21,8 +21,7 @@ const zombies = []
 for (let i=0; i<8; i++) {
   zombies.push(new Zombie(random(canvas.width), 
   random(canvas.height), 
-  random(4)+1, 
-  random(4)+1, i % 2 == 0 ? player1 : player2))
+  random(4)+1))
 }
 
 console.log("Start!");
@@ -37,8 +36,6 @@ function gameLoop() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   bulletController1.draw(ctx);
   player1.draw(ctx);
-  bulletController2.draw(ctx);
-  player2.draw(ctx);
 
   zombies.forEach((zombie) => {
     if (zombie.player.bulletController.collideWith(zombie)) {
