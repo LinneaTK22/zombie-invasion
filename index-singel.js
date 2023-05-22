@@ -21,7 +21,9 @@ const zombies = []
 for (let i=0; i<8; i++) {
   zombies.push(new Zombie(random(canvas.width), 
   random(canvas.height), 
-  random(4)+1))
+  random(4)+1,
+  random(4)+1,
+  player1))
 }
 
 console.log("Start!");
